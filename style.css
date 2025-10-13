@@ -275,3 +275,140 @@ section {
 .footer-links a:hover {
     color: var(--cor-secundaria);
 }
+
+/* ===== ÁREA DE LOGIN ===== */
+.nav-login {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.login-section {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+    background: var(--cor-clara);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.login-box h2 {
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: var(--cor-texto);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.form-group input {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--cor-secundaria);
+    outline: none;
+}
+
+.login-form .btn {
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+}
+
+/* ===== PAINEL ADMINISTRATIVO ===== */
+.admin-section {
+    padding: 40px 20px;
+}
+
+.admin-title {
+    color: var(--cor-primaria);
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2rem;
+}
+
+.admin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.admin-card {
+    background: var(--cor-clara);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 25px;
+}
+
+.admin-card-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    color: var(--cor-secundaria);
+}
+
+.admin-card-header i {
+    font-size: 1.8rem;
+}
+
+.admin-card-header h2 {
+    font-size: 1.4rem;
+    margin: 0;
+}
+
+.admin-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.admin-card .btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* Estilo para o nome do usuário no menu */
+.nav-login a {
+    color: var(--cor-clara);
+    text-decoration: none;
+}
+
+.nav-login a:hover {
+    color: var(--cor-fundo);
+}
