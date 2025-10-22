@@ -24,13 +24,28 @@ const DonationForm = ({ onSubmit }) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-group">
-                <label htmlFor="type">Tipo de Doação</label>
+                <label htmlFor="type" style={{ 
+                    display: 'block', 
+                    marginBottom: '8px',
+                    fontWeight: '600',
+                    fontSize: '1.1rem'
+                }}>
+                    Tipo de Doação *
+                </label>
                 <select 
                     id="type" 
                     name="type"
                     value={formData.type}
                     onChange={handleChange}
                     required
+                    style={{
+                        width: '100%',
+                        padding: '14px',
+                        fontSize: '1.1rem',
+                        border: '2px solid #ddd',
+                        borderRadius: '8px',
+                        fontFamily: 'inherit'
+                    }}
                 >
                     <option value="roupas">Roupas</option>
                     <option value="alimentos">Alimentos</option>

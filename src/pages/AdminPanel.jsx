@@ -100,109 +100,195 @@ const AdminPanel = () => {
     };
 
     return (
-        <section className="admin-section">
-            <div className="container">
-                <h1 className="admin-title">Painel Administrativo</h1>
-                
-                {/* Stats Cards */}
-                <div className="admin-stats">
-                    <StatsCard 
-                        icon="fas fa-calendar" 
-                        title="Eventos" 
-                        count={stats.events} 
-                    />
-                    <StatsCard 
-                        icon="fas fa-hand-holding-heart" 
-                        title="Doações" 
-                        count={stats.donations} 
-                    />
-                    <StatsCard 
-                        icon="fas fa-users" 
-                        title="Voluntários" 
-                        count={stats.volunteers} 
-                    />
-                </div>
-                
-                <div className="admin-grid">
-                    {/* Eventos */}
-                    <div className="admin-card">
-                        <div className="admin-card-header">
-                            <i className="fas fa-calendar"></i>
-                            <h2>Gerenciar Eventos</h2>
+        <div className="admin-modern">
+            {/* Admin Header */}
+            <section className="admin-header">
+                <div className="container">
+                    <div className="admin-header-content">
+                        <div className="admin-welcome">
+                            <div className="admin-avatar">
+                                <i className="fas fa-user-shield"></i>
+                            </div>
+                            <div className="admin-info">
+                                <h1 className="admin-title">Painel Administrativo</h1>
+                                <p className="admin-subtitle">
+                                    Bem-vindo, {user?.displayName || user?.email?.split('@')[0] || 'Administrador'}
+                                </p>
+                            </div>
                         </div>
-                        <div className="admin-card-content">
+                        <div className="admin-actions">
                             <button 
-                                className="btn btn-second" 
-                                onClick={() => openModal('add-event')}
+                                className="btn btn-secondary"
+                                onClick={handleLogout}
                             >
-                                Adicionar Evento
+                                <i className="fas fa-sign-out-alt"></i>
+                                Sair
                             </button>
-                            <button 
-                                className="btn btn-second" 
-                                onClick={() => openModal('list-events')}
-                            >
-                                Listar Eventos
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Doações */}
-                    <div className="admin-card">
-                        <div className="admin-card-header">
-                            <i className="fas fa-hand-holding-heart"></i>
-                            <h2>Controle de Doações</h2>
-                        </div>
-                        <div className="admin-card-content">
-                            <button 
-                                className="btn btn-second" 
-                                onClick={() => openModal('add-donation')}
-                            >
-                                Registrar Doação
-                            </button>
-                            <button 
-                                className="btn btn-second" 
-                                onClick={() => openModal('list-donations')}
-                            >
-                                Relatório de Doações
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Voluntários */}
-                    <div className="admin-card">
-                        <div className="admin-card-header">
-                            <i className="fas fa-users"></i>
-                            <h2>Voluntários</h2>
-                        </div>
-                        <div className="admin-card-content">
-                            <button 
-                                className="btn btn-second" 
-                                onClick={() => openModal('add-volunteer')}
-                            >
-                                Cadastrar Voluntário
-                            </button>
-                            <button 
-                                className="btn btn-second" 
-                                onClick={() => openModal('list-volunteers')}
-                            >
-                                Lista de Voluntários
-                            </button>
-                        </div>
-                    </div>
-
-                    {/* Configurações */}
-                    <div className="admin-card">
-                        <div className="admin-card-header">
-                            <i className="fas fa-cog"></i>
-                            <h2>Configurações</h2>
-                        </div>
-                        <div className="admin-card-content">
-                            <button className="btn btn-second">Configurações do Site</button>
-                            <button className="btn btn-second">Gerenciar Usuários</button>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
+            {/* Stats Overview */}
+            <section className="admin-stats-section">
+                <div className="container">
+                    <div className="stats-grid">
+                        <div className="stat-card">
+                            <div className="stat-icon">
+                                <i className="fas fa-calendar-alt"></i>
+                            </div>
+                            <div className="stat-content">
+                                <div className="stat-number">{stats.events}</div>
+                                <div className="stat-label">Eventos Ativos</div>
+                            </div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-icon">
+                                <i className="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <div className="stat-content">
+                                <div className="stat-number">{stats.donations}</div>
+                                <div className="stat-label">Doações Registradas</div>
+                            </div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-icon">
+                                <i className="fas fa-users"></i>
+                            </div>
+                            <div className="stat-content">
+                                <div className="stat-number">{stats.volunteers}</div>
+                                <div className="stat-label">Voluntários Cadastrados</div>
+                            </div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-icon">
+                                <i className="fas fa-chart-line"></i>
+                            </div>
+                            <div className="stat-content">
+                                <div className="stat-number">98%</div>
+                                <div className="stat-label">Satisfação</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Admin Actions */}
+            <section className="admin-actions-section">
+                <div className="container">
+                    <div className="admin-grid">
+                        {/* Eventos */}
+                        <div className="admin-card">
+                            <div className="admin-card-header">
+                                <div className="card-icon">
+                                    <i className="fas fa-calendar"></i>
+                                </div>
+                                <div className="card-info">
+                                    <h3>Gerenciar Eventos</h3>
+                                    <p>Crie e gerencie eventos da organização</p>
+                                </div>
+                            </div>
+                            <div className="admin-card-actions">
+                                <button 
+                                    className="btn btn-primary" 
+                                    onClick={() => openModal('add-event')}
+                                >
+                                    <i className="fas fa-plus"></i>
+                                    Adicionar Evento
+                                </button>
+                                <button 
+                                    className="btn btn-secondary" 
+                                    onClick={() => openModal('list-events')}
+                                >
+                                    <i className="fas fa-list"></i>
+                                    Listar Eventos
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Doações */}
+                        <div className="admin-card">
+                            <div className="admin-card-header">
+                                <div className="card-icon">
+                                    <i className="fas fa-hand-holding-heart"></i>
+                                </div>
+                                <div className="card-info">
+                                    <h3>Controle de Doações</h3>
+                                    <p>Registre e acompanhe doações recebidas</p>
+                                </div>
+                            </div>
+                            <div className="admin-card-actions">
+                                <button 
+                                    className="btn btn-primary" 
+                                    onClick={() => openModal('add-donation')}
+                                >
+                                    <i className="fas fa-plus"></i>
+                                    Registrar Doação
+                                </button>
+                                <button 
+                                    className="btn btn-secondary" 
+                                    onClick={() => openModal('list-donations')}
+                                >
+                                    <i className="fas fa-chart-bar"></i>
+                                    Relatório de Doações
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Voluntários */}
+                        <div className="admin-card">
+                            <div className="admin-card-header">
+                                <div className="card-icon">
+                                    <i className="fas fa-users"></i>
+                                </div>
+                                <div className="card-info">
+                                    <h3>Voluntários</h3>
+                                    <p>Gerencie voluntários e colaboradores</p>
+                                </div>
+                            </div>
+                            <div className="admin-card-actions">
+                                <button 
+                                    className="btn btn-primary" 
+                                    onClick={() => openModal('add-volunteer')}
+                                >
+                                    <i className="fas fa-user-plus"></i>
+                                    Cadastrar Voluntário
+                                </button>
+                                <button 
+                                    className="btn btn-secondary" 
+                                    onClick={() => openModal('list-volunteers')}
+                                >
+                                    <i className="fas fa-list"></i>
+                                    Lista de Voluntários
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* Configurações */}
+                        <div className="admin-card">
+                            <div className="admin-card-header">
+                                <div className="card-icon">
+                                    <i className="fas fa-cog"></i>
+                                </div>
+                                <div className="card-info">
+                                    <h3>Configurações</h3>
+                                    <p>Configure o sistema e gerencie usuários</p>
+                                </div>
+                            </div>
+                            <div className="admin-card-actions">
+                                <button className="btn btn-secondary">
+                                    <i className="fas fa-globe"></i>
+                                    Configurações do Site
+                                </button>
+                                <button className="btn btn-secondary">
+                                    <i className="fas fa-user-cog"></i>
+                                    Gerenciar Usuários
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* Modal */}
             <Modal 
@@ -220,7 +306,7 @@ const AdminPanel = () => {
             >
                 {renderModalContent()}
             </Modal>
-        </section>
+        </div>
     );
 };
 

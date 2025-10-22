@@ -24,7 +24,14 @@ const EventForm = ({ onSubmit }) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="form-group">
-                <label htmlFor="title">Título do Evento</label>
+                <label htmlFor="title" style={{ 
+                    display: 'block', 
+                    marginBottom: '8px',
+                    fontWeight: '600',
+                    fontSize: '1.1rem'
+                }}>
+                    Título do Evento *
+                </label>
                 <input 
                     type="text" 
                     id="title" 
@@ -32,6 +39,14 @@ const EventForm = ({ onSubmit }) => {
                     value={formData.title}
                     onChange={handleChange}
                     required 
+                    style={{
+                        width: '100%',
+                        padding: '14px',
+                        fontSize: '1.1rem',
+                        border: '2px solid #ddd',
+                        borderRadius: '8px',
+                        fontFamily: 'inherit'
+                    }}
                 />
             </div>
             <div className="form-group">

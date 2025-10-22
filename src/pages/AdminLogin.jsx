@@ -32,55 +32,78 @@ const AdminLogin = () => {
     };
 
     return (
-        <section className="login-section">
-            <div className="container">
-                <div className="login-box">
-                    <h2>Área Administrativa</h2>
+        <div className="login-modern">
+            <div className="login-container">
+                <div className="login-card">
+                    <div className="login-header">
+                        <div className="login-icon">
+                            <i className="fas fa-user-shield"></i>
+                        </div>
+                        <h1 className="login-title">Área Administrativa</h1>
+                        <p className="login-subtitle">Acesso restrito para administradores</p>
+                    </div>
+                    
                     <form onSubmit={handleSubmit} className="login-form">
                         {error && (
-                            <div style={{ 
-                                color: 'var(--cor-primaria)', 
-                                textAlign: 'center', 
-                                marginBottom: '10px' 
-                            }}>
+                            <div className="error-message">
+                                <i className="fas fa-exclamation-triangle"></i>
                                 {error}
                             </div>
                         )}
+                        
                         <div className="form-group">
-                            <label htmlFor="email">
-                                <i className="fas fa-envelope"></i> Email
+                            <label htmlFor="email" className="form-label">
+                                <i className="fas fa-envelope"></i>
+                                Email
                             </label>
                             <input 
                                 type="email" 
                                 id="email" 
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
+                                className="form-input"
+                                placeholder="Digite seu email"
                                 required 
                             />
                         </div>
+                        
                         <div className="form-group">
-                            <label htmlFor="password">
-                                <i className="fas fa-lock"></i> Senha
+                            <label htmlFor="password" className="form-label">
+                                <i className="fas fa-lock"></i>
+                                Senha
                             </label>
                             <input 
                                 type="password" 
                                 id="password" 
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
+                                className="form-input"
+                                placeholder="Digite sua senha"
                                 required 
                             />
                         </div>
+                        
                         <button 
                             type="submit" 
-                            className="btn btn-first"
+                            className="btn btn-primary btn-large"
                             disabled={loading}
                         >
-                            {loading ? 'Entrando...' : 'Entrar'}
+                            {loading ? (
+                                <>
+                                    <i className="fas fa-spinner fa-spin"></i>
+                                    Entrando...
+                                </>
+                            ) : (
+                                <>
+                                    <i className="fas fa-sign-in-alt"></i>
+                                    Entrar
+                                </>
+                            )}
                         </button>
                     </form>
                 </div>
             </div>
-        </section>
+        </div>
     );
 };
 
